@@ -17,7 +17,7 @@ export default function Bajarpeso() {
       <main className="flex justify-center min-h-screen items-center bg-white md:flex-row flex-col">
     
       <div className="text-center">
-      <ButtonBack/>
+
       <h1 className="text-4xl font-bold text-center p-6 md:text-4xl "> <span className='text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-500'> Sistema Experto </span> entrenador gimnasio
      </h1>
      <span className="font-bebas-neue text-6xl text-yellow-400">BAJAR PESO</span>
