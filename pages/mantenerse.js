@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
-
+import ButtonBack from "../components/buttonback";
 export default function Mantenerse() {
     const router = useRouter();
     const {peso,estatura,sexo,objetivo} = router.query;
@@ -20,6 +20,7 @@ export default function Mantenerse() {
        <span className="font-bebas-neue text-6xl text-yellow-400">MANTENERSE</span>
        <span className=" font-bebas-neue"> {peso} KG</span>
         <h2 className=" font-bebas-neue text-3xl"> {sexo}</h2>
+        <ButtonBack/>
         </div>
         <div className="w-full">
     <div  className="flex flex-col">
@@ -224,6 +225,7 @@ export default function Mantenerse() {
        <span className="font-bebas-neue text-6xl text-yellow-400">MANTENERSE</span>
        <span className=" font-bebas-neue"> {peso} KG</span>
        <h2 className=" font-bebas-neue text-3xl  "> {sexo}</h2>
+       <ButtonBack/>
         </div>
         <div className="w-full">
     <div  className="flex flex-col">

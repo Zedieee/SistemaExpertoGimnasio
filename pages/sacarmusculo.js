@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import ButtonBack from "../components/buttonback";
 
 export default function Sacarmusculo() {
     const router = useRouter();
@@ -21,6 +22,7 @@ export default function Sacarmusculo() {
      <span className="font-bebas-neue text-6xl text-yellow-400">SACAR MUSCULO</span>
      <span className=" font-bebas-neue"> {peso} KG</span>
      <h2 className=" font-bebas-neue"> {sexo}</h2>
+     <ButtonBack/>
       </div>
   <div className="w-full">
   <div  className="flex flex-col">
@@ -112,6 +114,7 @@ export default function Sacarmusculo() {
        <span className="font-bebas-neue text-6xl text-yellow-400">SACAR MUSCULO</span>
        <span className=" font-bebas-neue"> {peso} KG</span>
        <h2 className=" font-bebas-neue"> {sexo}</h2>
+       <ButtonBack/>
         </div>
     <div className="w-full">
     <div  className="flex flex-col">
