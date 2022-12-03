@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
 import Router, { useRouter } from "next/router";
-import Link from "next/link";
+import Alert from "../components/alert";
 
 export default function Home() {
   const router = useRouter();
@@ -9,6 +9,9 @@ export default function Home() {
   const [peso, setPeso] = useState(0);
   const [sexo, setSexo] = useState("hombre");
   const [objetivo, setObjetivo] = useState(false);
+  const [view , setView] = useState(false);
+  const[path, setPath] = useState("");
+  const [path2, setPath2] = useState("");
 
   const handleChangeEstatura = (e) => {
     setEstatura(e.target.value);
@@ -23,11 +26,19 @@ export default function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     switch (sexo && objetivo) {
       case "hombre" && false:
-        if (estatura <= 150 || peso <= 40) {
-          router.push("/subirpeso");
+        if (estatura <= 150 && peso <= 44 || estatura >=155 && estatura<=160 && peso <50 || estatura >= 161 && estatura <= 165 && peso < 53 || estatura >= 166 && estatura <= 170 && peso <56 || estatura >= 171 && estatura <= 175 && peso <60 || estatura >= 176 && estatura <= 180 && peso <63 || estatura >= 181 && estatura <= 185 && peso < 67 ||estatura >= 186 && estatura <= 190 && peso <71 ) {
+          router.push( {
+            pathname: "/subirpeso",
+            query: {
+              peso: peso,
+              estatura: estatura,
+              sexo: sexo,
+              objetivo: objetivo,
+            },
+          })
+
         }
         if (estatura >= 150 && estatura < 155 && peso >= 45 && peso <= 60) {
           router.push({
@@ -117,98 +128,67 @@ export default function Home() {
             },
           });
         }
-        if (estatura >= 150 && estatura < 155 && peso > 57) {
-          router.push({
-            pathname: "/bajarpeso",
-            query: {
-              peso: peso,
-              estatura: estatura,
-              sexo: sexo,
-              objetivo: objetivo,
-            },
-          });
+        if (estatura >= 150 && estatura <= 155 && peso >= 57) {
+          setView(true);
+          setPath("/sacarmusculo");
+          setPath2("/bajarpeso");
         }
         if (estatura >= 155 && estatura <= 160 && peso > 56) {
-          router.push({
-            pathname: "/bajarpeso",
-            query: {
-              peso: peso,
-              estatura: estatura,
-              sexo: sexo,
-              objetivo: objetivo,
-            },
-          });
+          setView(true);
+          setPath("/sacarmusculo");
+          setPath2("/bajarpeso");
         }
         if (estatura >= 161 && estatura <= 155 && peso > 60) {
-          router.push({
-            pathname: "/bajarpeso",
-            query: {
-              peso: peso,
-              estatura: estatura,
-              sexo: sexo,
-              objetivo: objetivo,
-            },
-          });
+          setView(true);
+          setPath("/sacarmusculo");
+          setPath2("/bajarpeso");
         }
         if (estatura >= 166 && estatura <= 170 && peso > 63) {
-          router.push({
-            pathname: "/bajarpeso",
-            query: {
-              peso: peso,
-              estatura: estatura,
-              sexo: sexo,
-              objetivo: objetivo,
-            },
-          });
+          setView(true);
+          setPath("/sacarmusculo");
+          setPath2("/bajarpeso");
         }
         if (estatura >= 171 && estatura <= 175 && peso > 67) {
-          router.push({
-            pathname: "/bajarpeso",
-            query: {
-              peso: peso,
-              estatura: estatura,
-              sexo: sexo,
-              objetivo: objetivo,
-            },
-          });
+          setView(true);
+          setPath("/sacarmusculo");
+          setPath2("/bajarpeso");
         }
         if (estatura >= 176 && estatura <= 180 && peso > 71) {
-          router.push({
-            pathname: "/bajarpeso",
-            query: {
-              peso: peso,
-              estatura: estatura,
-              sexo: sexo,
-              objetivo: objetivo,
-            },
-          });
+          setView(true);
+          setPath("/sacarmusculo");
+          setPath2("/bajarpeso");
         }
         if (estatura >= 181 && estatura <= 185 && peso > 75) {
-          router.push({
-            pathname: "/bajarpeso",
-            query: {
-              peso: peso,
-              estatura: estatura,
-              sexo: sexo,
-              objetivo: objetivo,
-            },
-          });
+          setView(true);
+          setPath("/sacarmusculo");
+          setPath2("/bajarpeso");
         }
         if (estatura >= 186 && estatura <= 190 && peso > 78) {
-          router.push({
-            pathname: "/bajarpeso",
-            query: {
-              peso: peso,
-              estatura: estatura,
-              sexo: sexo,
-              objetivo: objetivo,
-            },
-          });
+          setView(true);
+          setPath("/sacarmusculo");
+          setPath2("/bajarpeso");
         }
 
         break;
       case "hombre" && true:
-        if (estatura >= 150 && estatura < 155 && peso >= 47 && peso < 60) {
+        if (estatura <= 150 && peso < 47 || estatura >=155 && estatura<=160 && peso <50 || estatura >= 161 && estatura <= 165 && peso < 53 || estatura >= 166 && estatura <= 170 && peso <56 || estatura >= 171 && estatura <= 175 && peso <60 || estatura >= 176 && estatura <= 180 && peso <63 || estatura >= 181 && estatura <= 185 && peso < 67 ||estatura >= 186 && estatura <= 190 && peso <71 ) {
+          router.push( {
+            pathname: "/subirpeso",
+            query: {
+              peso: peso,
+              estatura: estatura,
+              sexo: sexo,
+              objetivo: objetivo,
+            },
+          })
+        
+        }
+        if(estatura >= 150 && estatura <= 155 && peso > 60 || estatura >= 155 && estatura <= 160 && peso > 56 || estatura >= 161 && estatura <= 165 &&  peso > 60 || estatura >= 166 && estatura <= 170 && peso > 63 || estatura >= 171 && estatura <= 175 && peso > 67 ||estatura >= 176 && estatura <= 180 && peso > 71 || estatura >= 180 && estatura <= 185 && peso > 75 || estatura >= 186 && estatura <= 190 && peso >78){
+          setView(true);
+          setPath("/sacarmusculo");
+          setPath2("/bajarpeso");
+        }
+        if (estatura >= 150 && estatura <= 155 && peso >= 47 && peso < 60) {
           router.push({
             pathname: "/sacarmusculo",
             query: {
@@ -274,7 +254,7 @@ export default function Home() {
             },
           });
         }
-        if (estatura >= 181 && estatura <= 185 && peso >= 67 && peso <= 75) {
+        if (estatura >= 180 && estatura <= 185 && peso >= 67 && peso <= 75) {
           router.push({
             pathname: "/sacarmusculo",
             query: {
@@ -295,25 +275,25 @@ export default function Home() {
               objetivo: objetivo,
             },
           });
-        } else {
-          setObjetivo(false);
-          router.push({
-            pathname: "/bajarpeso",
-            query: {
-              peso: peso,
-              estatura: estatura,
-              sexo: sexo,
-              objetivo: objetivo,
-            },
-          });
-        }
+        } 
         break;
       case "mujer" && false:
         if (estatura == 0 || peso == 0) {
           alert("Por favor ingrese todos los datos");
         }
-
-        if (estatura >= 150 && estatura < 155 && peso >= 45 && peso < 57) {
+        if (estatura <= 150 && peso <= 44 ||estatura >= 144 && estatura <= 150 && peso < 49 ||estatura >= 150 && estatura <= 155 && peso < 51||estatura >= 156 && estatura <= 160 && peso <54 ||estatura >= 161 && estatura <= 165 && peso < 56 || estatura >= 166 && estatura <= 170 && peso < 59 || estatura >= 171 && estatura <= 175 && peso <62 ||estatura >= 176 && estatura <= 180 && peso < 60) {
+          router.push( {
+            pathname: "/subirpeso",
+            query: {
+              peso: peso,
+              estatura: estatura,
+              sexo: sexo,
+              objetivo: objetivo,
+            },
+          })
+          
+        }
+        if (estatura >= 150 && estatura <= 155 && peso >= 45 && peso <= 57) {
           router.push({
             pathname: "/mantenerse",
             query: {
@@ -401,98 +381,65 @@ export default function Home() {
             },
           });
         }
-        if (estatura >= 150 && estatura < 155 && peso > 57) {
-          router.push({
-            pathname: "/bajarpeso",
-            query: {
-              peso: peso,
-              estatura: estatura,
-              sexo: sexo,
-              objetivo: objetivo,
-            },
-          });
-        }
-        if (estatura >= 144 && estatura <= 150 && peso > 56) {
-          router.push({
-            pathname: "/bajarpeso",
-            query: {
-              peso: peso,
-              estatura: estatura,
-              sexo: sexo,
-              objetivo: objetivo,
-            },
-          });
+
+        if (estatura >= 144 && estatura <= 150 && peso > 57) {
+          setView(true);
+          setPath("/sacarmusculo");
+          setPath2("/bajarpeso");
+
         }
         if (estatura >= 150 && estatura <= 155 && peso > 59) {
-          router.push({
-            pathname: "/bajarpeso",
-            query: {
-              peso: peso,
-              estatura: estatura,
-              sexo: sexo,
-              objetivo: objetivo,
-            },
-          });
+          setView(true);
+          setPath("/sacarmusculo");
+          setPath2("/bajarpeso");
         }
         if (estatura >= 156 && estatura <= 160 && peso > 61) {
-          router.push({
-            pathname: "/bajarpeso",
-            query: {
-              peso: peso,
-              estatura: estatura,
-              sexo: sexo,
-              objetivo: objetivo,
-            },
-          });
+          setView(true);
+          setPath("/sacarmusculo");
+          setPath2("/bajarpeso");
         }
         if (estatura >= 161 && estatura <= 165 && peso > 64) {
-          router.push({
-            pathname: "/bajarpeso",
-            query: {
-              peso: peso,
-              estatura: estatura,
-              sexo: sexo,
-              objetivo: objetivo,
-            },
-          });
+          setView(true);
+          setPath("/sacarmusculo");
+          setPath2("/bajarpeso");
         }
         if (estatura >= 166 && estatura <= 170 && peso > 67) {
-          router.push({
-            pathname: "/bajarpeso",
-            query: {
-              peso: peso,
-              estatura: estatura,
-              sexo: sexo,
-              objetivo: objetivo,
-            },
-          });
+          setView(true);
+          setPath("/sacarmusculo");
+          setPath2("/bajarpeso");
         }
         if (estatura >= 171 && estatura <= 175 && peso > 70) {
-          router.push({
-            pathname: "/bajarpeso",
-            query: {
-              peso: peso,
-              estatura: estatura,
-              sexo: sexo,
-              objetivo: objetivo,
-            },
-          });
+          setView(true);
+          setPath("/sacarmusculo");
+          setPath2("/bajarpeso");
         }
         if (estatura >= 176 && estatura <= 180 && peso > 72) {
-          router.push({
-            pathname: "/bajarpeso",
-            query: {
-              peso: peso,
-              estatura: estatura,
-              sexo: sexo,
-              objetivo: objetivo,
-            },
-          });
+          setView(true);
+          setPath("/sacarmusculo");
+          setPath2("/bajarpeso");
         }
 
         break;
       case "mujer" && true:
-        if (estatura >= 144 && estatura <= 150 && peso >= 49 && peso <= 56) {
+        if (estatura <= 150 && peso <= 48 ||estatura >= 144 && estatura <= 150 && peso < 49 ||estatura >= 150 && estatura <= 155 && peso < 51||estatura >= 156 && estatura <= 160 && peso <54 ||estatura >= 161 && estatura <= 165 && peso < 56 || estatura >= 166 && estatura <= 170 && peso < 59 || estatura >= 171 && estatura <= 175 && peso <62 ||estatura >= 176 && estatura <= 180 && peso < 60) {
+          router.push( {
+            pathname: "/subirpeso",
+            query: {
+              peso: peso,
+              estatura: estatura,
+              sexo: sexo,
+              objetivo: objetivo,
+            },
+          })
+          
+        }
+        if(estatura >= 144 && estatura <= 150 && peso >56|| estatura >= 150 && estatura <= 155 && peso >57 ||estatura >= 150 && estatura <= 155 && peso >59 || estatura >= 156 && estatura <= 160 && peso >61 || estatura >= 161 && estatura <= 165 && peso >64 || estatura >= 166 && estatura <= 170 && peso >67 || estatura >= 171 && estatura <= 175 && peso >70 || estatura >= 176 && estatura <= 180 && peso >72){
+            setView(true)
+            setPath("/sacarmusculo");
+            setPath2("/bajarpeso");
+        }
+
+        if (estatura >= 144 && estatura <= 150 && peso >= 49 && peso <= 56 ) {
           router.push({
             pathname: "/sacarmusculo",
             query: {
@@ -503,7 +450,7 @@ export default function Home() {
             },
           });
         }
-        if (estatura >= 150 && estatura < 155 && peso >= 47 && peso < 57) {
+        if (estatura >= 150 && estatura <= 155 && peso >= 47 && peso <= 57) {
           router.push({
             pathname: "/sacarmusculo",
             query: {
@@ -580,19 +527,7 @@ export default function Home() {
               objetivo: objetivo,
             },
           });
-        } else {
-          setObjetivo(false);
-
-          router.push({
-            pathname: "/bajarpeso",
-            query: {
-              peso: peso,
-              estatura: estatura,
-              sexo: sexo,
-              objetivo: objetivo,
-            },
-          });
-        }
+        } 
         break;
     }
   };
@@ -604,8 +539,9 @@ export default function Home() {
         <meta name="description" content="Generated by create next app" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className="flex justify-center min-h-screen items-center bg-white">
+     
+      <main className="flex flex-col justify-center min-h-screen items-center bg-white">
+      {view && <Alert peso={peso} estatura={estatura} objetivo={objetivo}  sexo={sexo} path={path} path2={path2} />}
         <div className=" md:w-3/5 md:h-4/5">
           <h1 className="text-4xl font-bold text-center p-8 md:text-5xl">
             {" "}
@@ -655,7 +591,7 @@ export default function Home() {
                 <option value="mujer">Mujer</option>
               </select>
               <label className="text-2xl font-semibold text-center p-4">
-                Aumentar masa muscular
+                Tonificar 
               </label>
 
               <label className="inline-flex relative items-center mr-5 cursor-pointer">
@@ -683,6 +619,7 @@ export default function Home() {
             </div>
           </form>
         </div>
+       
       </main>
     </div>
   );
