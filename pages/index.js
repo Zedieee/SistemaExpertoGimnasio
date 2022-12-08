@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useState } from "react";
-import Router, { useRouter } from "next/router";
+import   { useRouter } from "next/router";
 import Alert from "../components/alert";
 
 export default function Home() {
@@ -281,7 +281,7 @@ export default function Home() {
         if (estatura == 0 || peso == 0) {
           alert("Por favor ingrese todos los datos");
         }
-        if (estatura <= 150 && peso <= 44 ||estatura >= 144 && estatura <= 150 && peso < 49 ||estatura >= 150 && estatura <= 155 && peso < 51||estatura >= 156 && estatura <= 160 && peso <54 ||estatura >= 161 && estatura <= 165 && peso < 56 || estatura >= 166 && estatura <= 170 && peso < 59 || estatura >= 171 && estatura <= 175 && peso <62 ||estatura >= 176 && estatura <= 180 && peso < 60) {
+        if (estatura>=150 && estatura <= 155 && peso <= 44 ||estatura >= 144 && estatura <= 150 && peso < 49 ||estatura >= 150 && estatura <= 155 && peso < 51||estatura >= 156 && estatura <= 160 && peso <54 ||estatura >= 161 && estatura <= 165 && peso < 56 || estatura >= 166 && estatura <= 170 && peso < 59 || estatura >= 171 && estatura <= 175 && peso <62 ||estatura >= 176 && estatura <= 180 && peso < 60) {
           router.push( {
             pathname: "/subirpeso",
             query: {
@@ -293,7 +293,8 @@ export default function Home() {
           })
           
         }
-        if (estatura >= 150 && estatura <= 155 && peso >= 45 && peso <= 57) {
+        
+        if (estatura >= 144 && estatura <= 150 && peso >= 49 && peso <= 56) {
           router.push({
             pathname: "/mantenerse",
             query: {
@@ -304,7 +305,7 @@ export default function Home() {
             },
           });
         }
-        if (estatura >= 144 && estatura <= 150 && peso >= 49 && peso <= 56) {
+        if (estatura >= 150 && estatura <= 155 && peso >= 45 && peso <= 57) {
           router.push({
             pathname: "/mantenerse",
             query: {
@@ -421,7 +422,7 @@ export default function Home() {
 
         break;
       case "mujer" && true:
-        if (estatura <= 150 && peso <= 48 ||estatura >= 144 && estatura <= 150 && peso < 49 ||estatura >= 150 && estatura <= 155 && peso < 51||estatura >= 156 && estatura <= 160 && peso <54 ||estatura >= 161 && estatura <= 165 && peso < 56 || estatura >= 166 && estatura <= 170 && peso < 59 || estatura >= 171 && estatura <= 175 && peso <62 ||estatura >= 176 && estatura <= 180 && peso < 60) {
+        if (estatura <= 150 && peso < 47 ||estatura >= 144 && estatura <= 150 && peso < 49 ||estatura >= 150 && estatura <= 155 && peso < 51||estatura >= 156 && estatura <= 160 && peso <54 ||estatura >= 161 && estatura <= 165 && peso < 56 || estatura >= 166 && estatura <= 170 && peso < 59 || estatura >= 171 && estatura <= 175 && peso <62 ||estatura >= 176 && estatura <= 180 && peso < 60) {
           router.push( {
             pathname: "/subirpeso",
             query: {
@@ -433,7 +434,7 @@ export default function Home() {
           })
           
         }
-        if(estatura >= 144 && estatura <= 150 && peso >56|| estatura >= 150 && estatura <= 155 && peso >57 ||estatura >= 150 && estatura <= 155 && peso >59 || estatura >= 156 && estatura <= 160 && peso >61 || estatura >= 161 && estatura <= 165 && peso >64 || estatura >= 166 && estatura <= 170 && peso >67 || estatura >= 171 && estatura <= 175 && peso >70 || estatura >= 176 && estatura <= 180 && peso >72){
+        if(estatura >= 144 && estatura <= 150 && peso >56 || estatura >= 150 && estatura <= 155 && peso >57 ||estatura >= 150 && estatura <= 155 && peso >59 || estatura >= 156 && estatura <= 160 && peso >61 || estatura >= 161 && estatura <= 165 && peso >64 || estatura >= 166 && estatura <= 170 && peso >67 || estatura >= 171 && estatura <= 175 && peso >70 || estatura >= 176 && estatura <= 180 && peso >72){
             setView(true)
             setPath("/sacarmusculo");
             setPath2("/bajarpeso");
@@ -547,9 +548,9 @@ export default function Home() {
             {" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-500">
               {" "}
-              Sistema Experto{" "}
+              SISTEMA EXPERTO{" "}
             </span>{" "}
-            entrenador gimnasio
+            Entrenador gimnasio
           </h1>
           <form action="#" onSubmit={handleSubmit} className="">
             <div className="flex flex-col items-center ">
