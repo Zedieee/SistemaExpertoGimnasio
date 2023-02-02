@@ -14,22 +14,26 @@ export default function Home() {
   const [path2, setPath2] = useState("");
 
   const handleChangeEstatura = (e) => {
+    setView(false);
     setEstatura(e.target.value);
   };
 
   const handleChangePeso = (e) => {
+    setView(false);
     setPeso(e.target.value);
   };
   const handleChangeSexo = (e) => {
+    setView(false);
     setSexo(e.target.value);
   };
 
   const handleSubmit = (e) => {
+    
     e.preventDefault();
-
-    const IMS = peso / ((estatura / 100) * (estatura / 100));
+    //fuentes: https://www.minsalud.gov.co/salud/Paginas/Evalue-su-peso.aspx#:~:text=Se%20aplica%20una%20sencilla%20fórmula,%2F%201.5%20x%201.5%20%3D%2028.44
+    const IMC = peso / ((estatura / 100) * (estatura / 100));
    
-    if (IMS < 18.5) {
+    if (IMC < 18.5) {
       router.push({
         pathname: "/subirpeso",
         query: {
@@ -40,7 +44,7 @@ export default function Home() {
         },
       });
     }
-    if (IMS >= 18.5 && IMS <= 24.9) {
+    if (IMC >= 18.5 && IMC <= 24.9) {
       router.push({
         pathname: "/mantenerse",
         query: {
@@ -51,7 +55,7 @@ export default function Home() {
         },
       });
     }
-    if (IMS >= 25 && IMS <= 29.9) {
+    if (IMC >= 25 && IMC <= 29.9) {
       router.push({
         pathname: "/bajarpeso",
         query: {
@@ -62,13 +66,13 @@ export default function Home() {
         },
       });
     }
-    if (IMS >= 30) {
+    if (IMC >= 30 && objetivo===false) {
       setPath("/sacarmusculo");
       setPath2("/bajarpeso");
       setView(true);
    
   };
-  if (IMS >= 30 & objetivo===true)  {
+  if (IMC >= 30 && objetivo===true)  {
     router.push({
       pathname: "/sacarmusculo",
       query: {
